@@ -34,7 +34,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
             String passw = prefs.getString("passw", null);
             if (user != null || passw != null) {
                 Toast.makeText(this, "Succsfully logged", Toast.LENGTH_SHORT).show();
-                finish();
+                finish();1
             }
         }
     }
