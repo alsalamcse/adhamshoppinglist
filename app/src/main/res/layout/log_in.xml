@@ -33,6 +33,7 @@
         android:id="@+id/BTNLOGIN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onClick"
         android:text="login"
         tools:layout_editor_absoluteX="123dp"
         tools:layout_editor_absoluteY="182dp" />
