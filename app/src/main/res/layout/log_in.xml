@@ -49,6 +49,6 @@
     <Button
         android:id="@+id/BTNFORGETPASS"
         android:layout_width="187dp"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
         android:text="forget my password" />
 </LinearLayout>
