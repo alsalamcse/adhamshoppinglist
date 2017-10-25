@@ -3,4 +3,17 @@
     <string name="title_activity_main_list">MainListActivity</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_mainlist">mainlist</string>
+    <string name="name">name to get</string>
+    <string name="save">save item</string>
+    <string name="price">PRICE</string>
+    <string name="units">UNITS</string>
+    <string name="anount" />
+    <string name="amount">AMOUNT TO GET</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="total">Total price</string>
+    <string name="count">Count</string>
 </resources>
