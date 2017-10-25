@@ -4,9 +4,14 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.util.ArrayMap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.klaib.adham.adhamshoppinglist.R;
 
@@ -27,13 +32,15 @@ public class Currentfragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    //1
+    private TextView tvTotal,tvCount,tvTotalValue,tvCountValue;
+    private ImageButton imbSave;
+    private ListView IstvCurrent;
     private OnFragmentInteractionListener mListener;
 
     public Currentfragment() {
         // Required empty public constructor
     }
-
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -51,7 +58,6 @@ public class Currentfragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,12 +66,24 @@ public class Currentfragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
     @Override
+    //2
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_currentfragment, container, false);
+        //3
+        View view= inflater.inflate(R.layout.fragment_currentfragment, container, false);
+        //5
+        tvTotal= (TextView) view.findViewById(R.id.tvTotal);
+        tvTotalValue= (TextView) view.findViewById(R.id.tvTotalValue);
+        tvCount= (TextView) view.findViewById(R.id.tvCount);
+        tvCountValue= (TextView) view.findViewById(R.id.tvCountValue);
+        imbSave= (ImageButton) view.findViewById(R.id.imbSave);
+        IstvCurrent= (ListView) view.findViewById(R.id.IstvCurrent);
+        String[] ar={"noor","rimaa","sozy","adam","nana","adham"};
+        ArrayAdapter<String> arrayAdapter=new ArrayAdapter(this,)
+        //4
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -74,7 +92,6 @@ public class Currentfragment extends Fragment {
             mListener.onFragmentInteraction(uri);
         }
     }
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -85,7 +102,6 @@ public class Currentfragment extends Fragment {
                     + " must implement OnFragmentInteractionListener");
         }
     }
-
     @Override
     public void onDetach() {
         super.onDetach();
