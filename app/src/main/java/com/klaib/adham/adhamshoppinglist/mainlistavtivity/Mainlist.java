@@ -62,10 +62,12 @@ public class Mainlist extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
                 Intent i=new Intent(getBaseContext(),AddItem.class);
                 startActivity(i);
+
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+
             }
         });
     }
@@ -145,23 +147,22 @@ public class Mainlist extends AppCompatActivity {
                 }
                 return historyfragment;
             }
-            return null;
+            return PlaceholderFragment.newInstance(position+1);
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 2;
+            // Show 2 total pages.
+            return 1;
         }
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "current fragment";
+                    return "current ";
                 case 1:
-                    return "SECTION 2";
-                case 2:
-                    return "SECTION 3";
+                    return "history ";
+
             }
             return null;
         }

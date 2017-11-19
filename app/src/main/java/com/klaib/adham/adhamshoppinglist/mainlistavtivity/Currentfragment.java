@@ -81,7 +81,7 @@ public class Currentfragment extends Fragment {
         imbSave= (ImageButton) view.findViewById(R.id.imbSave);
         IstvCurrent= (ListView) view.findViewById(R.id.IstvCurrent);
         String[] ar={"noor","rimaa","sozy","adam","nana","adham"};
-        ArrayAdapter<String> arrayAdapter=new ArrayAdapter(this,)
+     //   ArrayAdapter<String> arrayAdapter=new ArrayAdapter(this,)
         //4
         return view;
     }

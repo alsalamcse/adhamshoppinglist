@@ -39,7 +39,8 @@ public class signup extends AppCompatActivity implements View.OnClickListener
     public void onClick(View v)
     {
         dataHandler();
-
+        Intent intent=new Intent(this,login.class);
+        startActivity(intent);
     }
     /**
      * to deal with input data
