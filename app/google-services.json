@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "689840333150",
+    "firebase_url": "https://adhamshoppinglist.firebaseio.com",
+    "project_id": "adhamshoppinglist",
+    "storage_bucket": "adhamshoppinglist.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689840333150:android:59342ac5f3c299cf",
+        "android_client_info": {
+          "package_name": "com.klaib.adham.adhamshoppinglist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "689840333150-f3js5n6cnnpv9mlol1outd39fnndleth.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.klaib.adham.adhamshoppinglist",
+            "certificate_hash": "013f43c9a5d380c46de43c04644418dbe5d2a253"
+          }
+        },
+        {
+          "client_id": "689840333150-10mof7svj0u187al8c1r4tvjv0326ijg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsZW2ugyPzJFdpKnLOh_UMkXKCvgR2OCU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "689840333150-10mof7svj0u187al8c1r4tvjv0326ijg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
