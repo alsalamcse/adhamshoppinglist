@@ -92,4 +92,16 @@ public class Product
     public void setKeyId(String keyId) {
         this.keyId = keyId;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", amount=" + amount +
+                ", isCompleted=" + isCompleted +
+                ", imgPath='" + imgPath + '\'' +
+                ", keyId='" + keyId + '\'' +
+                '}';
+    }
 }

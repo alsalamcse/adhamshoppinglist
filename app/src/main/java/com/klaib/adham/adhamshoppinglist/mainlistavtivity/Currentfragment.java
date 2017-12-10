@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.util.ArrayMap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,16 +14,17 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.klaib.adham.adhamshoppinglist.R;
+import com.klaib.adham.adhamshoppinglist.data.Product;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Currentfragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link Currentfragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class Currentfragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,7 +38,7 @@ public class Currentfragment extends Fragment {
     private TextView tvTotal,tvCount,tvTotalValue,tvCountValue;
     private ImageButton imbSave;
     private ListView IstvCurrent;
-    private OnFragmentInteractionListener mListener;
+
 
     public Currentfragment() {
         // Required empty public constructor
@@ -81,45 +83,45 @@ public class Currentfragment extends Fragment {
         imbSave= (ImageButton) view.findViewById(R.id.imbSave);
         IstvCurrent= (ListView) view.findViewById(R.id.IstvCurrent);
         String[] ar={"noor","rimaa","sozy","adam","nana","adham"};
-     //   ArrayAdapter<String> arrayAdapter=new ArrayAdapter(this,)
+        //ArrayAdapter<String> arrayAdapter=new ArrayAdapter(this,)
+        readAndListen();
         //4
         return view;
     }
+    //read and listen data from firebase
+    private void readAndListen()
+    {
+        //5.to get user email
+        FirebaseAuth auth=FirebaseAuth.getInstance();
+        FirebaseUser user=auth.getCurrentUser();
+        String email=user.getEmail();
+        email=email.replace('.','*');
+        //6.building data reference= data path=data address
+        DatabaseReference reference;
+        //todo לקבלת קישור למסד הניתונים שלנו
+        //todo קישור הינו לשורש של המסד שלנו
+        reference= FirebaseDatabase.getInstance().getReference();
+        //7.listening to data cgange
+        reference.child(email).child("MyList").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                for (DataSnapshot ds:dataSnapshot.getChildren())
+                {
+                    Product p= ds.getValue(Product.class);
+                    Log.d("LS",p.toString());
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError)
+            {
+
+            }
+        });
+
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
+
 }
